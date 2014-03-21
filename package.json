@@ -33,6 +33,7 @@
     "metalsmith-static": "0.0.2",
     "open": "0.0.4",
     "metalsmith": "^0.4.0",
-    "ncp": "^0.5.0"
+    "ncp": "^0.5.0",
+    "connect": "^2.14.3"
   }
 }
