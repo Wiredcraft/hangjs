@@ -89,7 +89,7 @@ gulp.task('server', ['watch'], function(callback) {
 
 // Rerun the task when a file changes
 gulp.task('watch', function() {
-    gulp.watch('_posts', ['build', 'server']);
+    gulp.watch('./source/index.html', ['build', 'server']);
 });
 
 // The default task (called when you run `gulp` from cli)
