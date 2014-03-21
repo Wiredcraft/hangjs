@@ -90,7 +90,9 @@ gulp.task('server', ['watch'], function(callback) {
 // Rerun the task when a file changes
 gulp.task('watch', function() {
     gulp.watch('./source/index.html', ['build', 'server']);
+    gulp.watch('./templates/*.html', ['build', 'server']);
     gulp.watch(['./public/styles.css', './public/scripts.js'], ['build', 'server']);
+    gulp.watch(['./assets/scss/**/*.scss', './assets/images/**/*.png'], ['build', 'server']);
 });
 
 // The default task (called when you run `gulp` from cli)
