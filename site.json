@@ -2,7 +2,9 @@
     "source": "./source",
     "destination": "./_site",
     "metadata": {
-        "title": "my jekyll-powered blog",
-        "description": "my second, super-cool, jekyll-powered blog."
+        "site": {
+            "title": "my jekyll-powered blog",
+            "description": "my second, super-cool, jekyll-powered blog."
+        }
     }
 }
