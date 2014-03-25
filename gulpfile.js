@@ -3,63 +3,82 @@ var http = require('http');
 
 var ncp = require('ncp').ncp;
 var openBrowser = require('open');
-var gulp = require('gulp');
-var gutil = require('gulp-util');
 var connect = require('connect');
 var Metalsmith = require('metalsmith');
 
-var static = {
-}
+var gulp = require('gulp');
+var compass = require('gulp-compass');
+var sass = require('gulp-ruby-sass');
+var concat = require('gulp-concat');
+var gutil = require('gulp-util');
+var log = gutil.log;
+var colors = gutil.colors;
+
+var site = require(path.resolve(__dirname, 'site.json'));
+var siteJS = site.assets.vendor.js.concat(site.assets.custom.js);
+var siteCSS = site.assets.vendor.css.concat(site.assets.custom.css);
+
 //
 var plugins = {
     "metalsmith-drafts": {},
     "metalsmith-markdown": {},
-    // "metalsmith-permalinks": {
-    //     "pattern": ":title"
-    // },
     "metalsmith-templates": {
         "engine": "swig",
         "directory": "./templates"
     },
+    "metalsmith-assets": null,
     "metalsmith-static": null
 }
 
-var site = require(path.resolve(__dirname, 'site.json'));
+gulp.task('sass', function() {
+    gulp.src(site.assets.custom.scss)
+        .pipe(sass({ compass: true }))
+        .pipe(gulp.dest('./assets/css/'));
+});
+
+gulp.task('concat-js', function() {
+    gulp.src(siteJS)
+        .pipe(concat('scripts.js'))
+        .pipe(gulp.dest('./public'));
+});
+
+gulp.task('concat-css', function() {
+    gulp.src(siteCSS)
+        .pipe(concat('styles.css'))
+        .pipe(gulp.dest('./public'));
+});
+
 
 //
-gulp.task('build', function(callback) {
+gulp.task('metalsmith', function(callback) {
     var metalsmith = new Metalsmith(process.cwd());
 
     metalsmith.source(site.source);
     metalsmith.destination(site.destination);
     metalsmith.metadata(site.metadata);
 
-    for (var key in plugins) {
+    Object.keys(plugins).forEach(function(key) {
         var plugin;
         var opts = plugins[key];
 
         plugin = require(key);
 
         metalsmith.use(plugin(opts));
-    }
+    });
 
     metalsmith.build(function(err){
-        if (err) return process.exit(1);
-
-        ncp('./assets', '_site/assets', function(err) {
-            if (err) return process.exit(1);
-            callback();
-        });
+        if (err) return callback(err);
+        callback();
     });
 });
 
 //
 gulp.task('server', ['watch'], function(callback) {
-    var devApp, devServer, devAddress, devHost, url, log=gutil.log, colors=gutil.colors;
+    var devApp, devServer, devAddress, devHost, url;
 
     devApp = connect()
     .use(connect.logger('dev'))
-    .use(connect.static('_site'));
+    .use(connect.static(site.destination));
 
     // change port and hostname to something static if you prefer
     devServer = http.createServer(devApp).listen(0 /*, hostname*/);
@@ -74,7 +93,6 @@ gulp.task('server', ['watch'], function(callback) {
         devHost = devAddress.address === '0.0.0.0' ? 'localhost' : devAddress.address;
         url = ('http://' + devHost + ':' + devAddress.port + '/index.html');
 
-        log('');
         log('Started dev server at '+colors.magenta(url));
         if(gutil.env.open) {
             log('Opening dev server URL in browser');
@@ -82,18 +100,19 @@ gulp.task('server', ['watch'], function(callback) {
         } else {
             log(colors.gray('(Run with --open to automatically open URL on startup)'));
         }
-        log('');
+        log('Done');
         callback(); // we're done with this task for now
     });
 });
 
 // Rerun the task when a file changes
 gulp.task('watch', function() {
-    gulp.watch('./source/index.html', ['build', 'server']);
-    gulp.watch('./templates/*.html', ['build', 'server']);
-    gulp.watch(['./public/styles.css', './public/scripts.js'], ['build', 'server']);
-    gulp.watch(['./assets/scss/**/*.scss', './assets/images/**/*.png'], ['build', 'server']);
+
+    gulp.watch(site.assets.custom.scss, ['sass']);
+    gulp.watch(siteJS, ['concat-js']);
+    gulp.watch(siteCSS, ['concat-css']);
+    gulp.watch(['./public/*', './templates/*.html', './source/*.html'], ['metalsmith']);
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['build', 'server']);
+gulp.task('default', ['sass', 'concat-js', 'concat-css', 'metalsmith', 'server']);

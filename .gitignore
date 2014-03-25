@@ -2,3 +2,7 @@ node_modules
 _site/index.html
 _site/assets
 _site/public
+.sass-cache
+vendor
+public
+assets/css/*.css

@@ -2,7 +2,30 @@
     "source": "./source",
     "destination": "./_site",
     "metadata": {
-        "title": "my jekyll-powered blog",
-        "description": "my second, super-cool, jekyll-powered blog."
-    }
+        "site": {
+            "title": "my jekyll-powered blog",
+            "description": "my second, super-cool, jekyll-powered blog."
+        }
+    },
+    "assets": {
+        "vendor": {
+            "js": [
+                "vendor/jquery/dist/jquery.js"
+            ],
+            "css": [
+                "vendor/normalize-css/normalize.css"
+            ]
+        },
+        "custom": {
+            "js": [
+                "assets/js/*.js"
+            ],
+            "css": [
+                "assets/css/*.css"
+            ],
+            "scss": [
+                "assets/scss/**/*.{scss,sass}"
+            ]
+        }
+    } 
 }

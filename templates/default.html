@@ -5,11 +5,10 @@
 
   <!-- Meta -->
   <meta charset='utf-8'/>
-  <meta name='description' content='{{ description }}'/>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel='shortcut icon' href='assets/images/favicon.ico' />
-  {% if page.description %}<meta name='description' content='{{ description }}'/>{% endif %}
-  {% if page.tags %}<meta name='keywords' content='{{ page.tags|join(', ') }}'/>{% endif %}
+  {% if description %}<meta name='description' content='{{ description }}'/>{% endif %}
+  {% if tags %}<meta name='keywords' content='{{ tags|join(', ') }}'/>{% endif %}
 
   <!-- CSS -->
   <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'/>
