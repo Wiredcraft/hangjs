@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "devDependencies": {
   	"jquery": "*",
-    "normalize-css": "*"
+    "jquery-touchswipe": "*",
+    "normalize-css": "*",
+    "highlightjs": "*"
   }
 }
