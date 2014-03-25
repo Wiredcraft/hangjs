@@ -27,5 +27,5 @@
                 "assets/scss/**/*.{scss,sass}"
             ]
         }
-    } 
+    }
 }
