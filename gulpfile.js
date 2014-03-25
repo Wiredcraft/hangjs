@@ -97,7 +97,7 @@ gulp.task('server', ['watch'], function(callback) {
     devServer.on('listening', function() {
         devAddress = devServer.address();
         devHost = devAddress.address === '0.0.0.0' ? 'localhost' : devAddress.address;
-        url = ('http://' + devHost + ':' + devAddress.port + '/index.html');
+        url = ('http://' + devHost + ':' + devAddress.port);
 
         log('Started dev server at '+colors.magenta(url));
         if(gutil.env.open) {
@@ -117,7 +117,7 @@ gulp.task('watch', function() {
     gulp.watch(site.assets.custom.scss, ['sass']);
     gulp.watch(siteJS, ['concat-js']);
     gulp.watch(siteCSS, ['concat-css']);
-    gulp.watch(['./public/*', './assets/**/*.{png}', './templates/*', './source/*'], ['metalsmith']);
+    gulp.watch(['./public/**/*', './assets/**/*.{png}', './templates/**/*', './source/**/*'], ['metalsmith']);
 });
 
 // The default task (called when you run `gulp` from cli)
