@@ -6,3 +6,4 @@ _site/public
 vendor
 public
 assets/css/*.css
+.DS_Store
