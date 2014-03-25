@@ -117,7 +117,7 @@ gulp.task('watch', function() {
     gulp.watch(site.assets.custom.scss, ['sass']);
     gulp.watch(siteJS, ['concat-js']);
     gulp.watch(siteCSS, ['concat-css']);
-    gulp.watch(['./public/*', './templates/*.html', './source/*.html'], ['metalsmith']);
+    gulp.watch(['./public/*', './assets/**/*.{png}', './templates/*', './source/*'], ['metalsmith']);
 });
 
 // The default task (called when you run `gulp` from cli)
