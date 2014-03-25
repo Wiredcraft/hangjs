@@ -4,7 +4,7 @@
 
     nodejs 0.10.x
 
-    rubu compass gem
+    ruby compass gem
 
 ## How to
 
