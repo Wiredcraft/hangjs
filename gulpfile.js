@@ -8,6 +8,7 @@ var Metalsmith = require('metalsmith');
 
 var gulp = require('gulp');
 var compass = require('gulp-compass');
+var clean = require('gulp-clean');
 var sass = require('gulp-ruby-sass');
 var concat = require('gulp-concat');
 var gutil = require('gulp-util');
@@ -29,6 +30,11 @@ var plugins = {
     "metalsmith-assets": null,
     "metalsmith-static": null
 }
+
+gulp.task('clean', function() {
+    gulp.src(site.destination, {read: false})
+        .pipe(clean());
+})
 
 gulp.task('sass', function() {
     gulp.src(site.assets.custom.scss)
