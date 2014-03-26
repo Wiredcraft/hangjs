@@ -1,53 +1,72 @@
 ---
 title: JS中国技术大会
 tags:
-  - Hubot
-  - automatio
-  - integration
-  - SaaS
-description: Hello
+  - 杭州
+  - Javascript
+  - 技术
+  - 大会
+description: JS中国技术大会
 template: default.html
 ---
 
-<section id='hero' name='hero' class='section container'>
-  <div id='pitch' class='column full'>
-    <h1>JS中国技术大会</h1>
-    <p>2014年6月9-10日，杭州</p>
-    <img src='/assets/images/logo.png' alt='logo'/>
-    <img src='/assets/images/img.png' alt='screenshot'/>
+<section class='container'>
+  <div class='row' id='hero' name='hero'>
+    <div class='column third'>
+      <img src='/assets/images/logo.png' alt='logo'/>
+    </div>
+    <div class='column two-thirds'>
+      <h1>JS中国技术大会</h1>
+      <p>2014年6月9-10日，杭州</p>
+    </div>
+  </div>
+  <div class='row' id='subscribe' name='subscribe'>
+    <div class='column full'>
+      <p><a href='#'>Subscribe</a></p>
+      <img src='/assets/images/img.png' alt='screenshot'/>
+    </div>
+  </div>
+  <div class='row' id='about' name='about'>
+    <div class='column third'>
+      <h2>关于技术大会</h2>
+    </div>
+    <div class='column two-thirds'>
+      <p class='description'>杭JS2014是一场专注于JavaScript和Node.js技术，为期两天的国际性技术大会。届时，大会会邀请国内外的优秀讲师为大家分享在JavaScript和Node.js技术方面的经验。大会将于6月9-10日在杭州召开。</p>
+    </div>
   </div>
 </section>
 
-<section id='about' class='section container' name='about'>
-  <div class='colum full'>
-    <h2>关于技术大会</h2>
-    <p class='description'>杭JS2014是一场专注于JavaScript和Node.js技术，为期两天的国际性技术大会。届时，大会会邀请国内外的优秀讲师为大家分享在JavaScript和Node.js技术方面的经验。大会将于6月9-10日在杭州召开。</p>
+<section class='container'>
+  <div class='row' id='mail' name='mail'>
+    <div class='column third'>
+      <h2>邮件列表</h2>
+    </div>
+    <div class='column two-thirds'>
+      <p class='description'>注册到邮件列表获取最新大会消息。</p>
+      <form>
+        <div>
+          <input type='email' placeholder='电子邮件' value name='EMAIL'></input>
+          <input type='submit' value='订阅' class='btn'></input>
+        </div>
+      </form>
+    </div>
   </div>
 </section>
 
-<section id='maillist' class='section container' name='maillist'>
-  <div class='colum full'>
-    <h2>邮件列表</h2>
-    <p class='description'>注册到邮件列表获取最新大会消息。</p>
-    <form>
-      <div>
-        <input type='email' placeholder='电子邮件' value name='EMAIL'></input>
-        <input type='submit' value='订阅' class='btn'></input>
-      </div>
-    </form>
+<section class='container'>
+  <div class='row' id='speakers' name='speakers'>
+    <div class='column third'>
+      <h2>讲师</h2>
+    </div>
+    <div class='column two-thirds'>
+      <p>极客之行，诚邀你的参与！</p>
+    </div>
   </div>
-</section>
-
-<section id='speakers' class='section container' name='speakers'>
-  <div class='colum full'>
-    <h2>讲师</h2>
-    <p class='description'>极客之行，诚邀你的参与！</p>
-  </div>
-</section>
-
-<section id='sponsors' class='section container' name='sponsors'>
-  <div class='colum full'>
-    <h2>赞助</h2>
-    <p class='description'>你期待谁的出现？或者你就可以来发表演讲！</p>
+  <div class='row' id='sponsors' name='sponsors'>
+    <div class='column third'>
+      <h2>赞助</h2>
+    </div>
+    <div class='column two-thirds'>
+      <p>你期待谁的出现？或者你就可以来发表演讲！</p>
+    </div>
   </div>
 </section>
