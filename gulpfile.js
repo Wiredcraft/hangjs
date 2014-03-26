@@ -32,7 +32,8 @@ var plugins = {
 }
 
 gulp.task('clean', function() {
-    gulp.src(site.destination, {read: false})
+    var files = path.join(site.destination, '*');
+    gulp.src(files, {read: false})
         .pipe(clean());
 })
 
