@@ -91,7 +91,7 @@ gulp.task('server', ['prepare', 'watch'], function(callback) {
     .use(connect.static(site.destination));
 
     // change port and hostname to something static if you prefer
-    devServer = http.createServer(devApp).listen(0 /*, hostname*/);
+    devServer = http.createServer(devApp).listen(gutil.env.port || 0 /*, hostname*/);
 
     devServer.on('error', function(error) {
         log(colors.underline(colors.red('ERROR'))+' Unable to start server!');
@@ -124,5 +124,6 @@ gulp.task('watch', function() {
     gulp.watch(['./public/**/*', './assets/**/*.{png}', './templates/**/*', './source/**/*'], ['metalsmith']);
 });
 
+
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['sass', 'concat-js', 'concat-css', 'metalsmith', 'server']);
+gulp.task('default', ['sass', 'concat-js', 'concat-css', 'metalsmith']);

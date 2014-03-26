@@ -1,5 +1,5 @@
 default: i boweri
-	@./node_modules/.bin/gulp --open
+	@./node_modules/.bin/gulp --open --port 4000
 i:
 	@npm --registry=http://r.cnpmjs.org \
        --cache=${HOME}/.npm/.cache/cnpm \
