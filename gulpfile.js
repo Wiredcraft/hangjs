@@ -7,7 +7,7 @@ var connect = require('connect');
 var Metalsmith = require('metalsmith');
 
 var gulp = require('gulp');
-var compass = require('gulp-compass');
+var mkdirp = require('mkdirp');
 var clean = require('gulp-clean');
 var sass = require('gulp-ruby-sass');
 var concat = require('gulp-concat');
@@ -31,9 +31,12 @@ var plugins = {
     "metalsmith-static": null
 }
 
+gulp.task('prepare', function(callback) {
+    mkdirp(site.destination, callback);
+});
+
 gulp.task('clean', function() {
-    var files = path.join(site.destination, '*');
-    gulp.src(files, {read: false})
+    gulp.src(site.destination, {read: false})
         .pipe(clean());
 })
 
@@ -80,7 +83,7 @@ gulp.task('metalsmith', function(callback) {
 });
 
 //
-gulp.task('server', ['watch'], function(callback) {
+gulp.task('server', ['prepare', 'watch'], function(callback) {
     var devApp, devServer, devAddress, devHost, url;
 
     devApp = connect()
