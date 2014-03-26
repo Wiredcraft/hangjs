@@ -15,8 +15,8 @@ TMP_FOLDER=$(mktemp -d)
 #
 # Build process
 #
-npm install
-bower install
+npm --silent install
+bower --silent install
 gulp
 
 # Copy build files
