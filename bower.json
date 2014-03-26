@@ -1,10 +1,10 @@
 {
-  "name": "Wiredcraft",
-  "version": "0.0.1",
-  "devDependencies": {
-  	"jquery": "*",
-    "jquery-touchswipe": "*",
-    "normalize-css": "*",
-    "highlightjs": "*"
-  }
+    "name": "Wiredcraft",
+    "version": "0.0.1",
+    "devDependencies": {
+        "jquery": "*",
+        "swipe": "*",
+        "normalize-css": "*",
+        "highlightjs": "*"
+    }
 }
