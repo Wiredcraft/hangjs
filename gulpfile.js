@@ -117,13 +117,12 @@ gulp.task('server', ['prepare', 'watch'], function(callback) {
 
 // Rerun the task when a file changes
 gulp.task('watch', function() {
-
     gulp.watch(site.assets.custom.scss, ['sass']);
     gulp.watch(siteJS, ['concat-js']);
     gulp.watch(siteCSS, ['concat-css']);
     gulp.watch(['./public/**/*', './assets/**/*.{png}', './templates/**/*', './source/**/*'], ['metalsmith']);
 });
 
-
 // The default task (called when you run `gulp` from cli)
 gulp.task('default', ['sass', 'concat-js', 'concat-css', 'metalsmith']);
+gulp.task('development', ['sass', 'concat-js', 'concat-css', 'metalsmith', 'server']);

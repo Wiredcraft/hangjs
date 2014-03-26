@@ -29,6 +29,8 @@ cp -a _site/* $TMP_FOLDER
 # Stash changes to allow branch switch
 git stash
 git checkout gh-pages
+git clean -f -d
+git clean -f -x
 cp -a $TMP_FOLDER/* .
 git add .
 git commit -am "$COMMIT_MSG"
