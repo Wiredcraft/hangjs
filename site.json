@@ -10,7 +10,9 @@
     "assets": {
         "vendor": {
             "js": [
-                "vendor/jquery/dist/jquery.js"
+                "vendor/jquery/dist/jquery.js",
+                "vendor/highlightjs/highlight.pack.js",
+                "vendor/swipe/swipe.js"
             ],
             "css": [
                 "vendor/normalize-css/normalize.css"
