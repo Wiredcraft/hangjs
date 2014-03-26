@@ -1,6 +1,4 @@
-default:
-	@./node_modules/.bin/gulp
-browser:
+default: i boweri
 	@./node_modules/.bin/gulp --open
 i:
 	@npm --registry=http://r.cnpmjs.org \
@@ -8,7 +6,7 @@ i:
        --disturl=http://cnpmjs.org/dist \
        --userconfig=${HOME}/.cnpmrc \
        install
-boweri:
+boweri: i
 	@./node_modules/.bin/bower install
 
-.PHONY: default browser i boweri
+.PHONY: default i boweri

@@ -18,12 +18,7 @@ make i
 make boweri
 ```
 
-### Watch files changes and start development server
-```bash
-make
-```
-
 ### Watch files changes and start development server and open page in default browser
 ```bash
-make browser
+make
 ```
