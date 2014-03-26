@@ -25,6 +25,7 @@ var plugins = {
     "metalsmith-markdown": {},
     "metalsmith-templates": {
         "engine": "swig",
+        "cache": false,
         "directory": "./templates"
     },
     "metalsmith-assets": null,
