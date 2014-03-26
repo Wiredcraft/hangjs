@@ -31,6 +31,9 @@ var plugins = {
     "metalsmith-static": null
 }
 
+/*
+ * Tasks
+ */
 gulp.task('prepare', function(callback) {
     mkdirp(site.destination, callback);
 });
