@@ -1,10 +1,10 @@
-# Site for hangjs 2014
+# Static site generator for hangjs 2014
 
 ## Pre-requisites
 
-    nodejs 0.10.x
+**nodejs 0.10.x**
 
-    ruby compass gem
+**ruby compass**
 
 ## How to
 
