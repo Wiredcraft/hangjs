@@ -10,6 +10,9 @@
   }
   #hero {
     padding-bottom: 0;
+    .column img {
+      width: 140px;
+    }
     h1 {
       margin: 0 0 $gutter/2;
     }
