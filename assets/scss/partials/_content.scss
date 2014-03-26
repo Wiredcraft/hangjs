@@ -5,14 +5,11 @@
   .column img {
     max-width: 100%;   
   }
-  h2 {
-    text-align: center;
+  .third {
+    text-align: right;
   }
   #hero {
     padding-bottom: 0;
-    .third {
-      text-align: right;
-    }
     h1 {
       margin: 1.5*$gutter 0 $gutter/2;
     }
@@ -42,10 +39,7 @@
     }
   }
   #mail {
-    background: $green;
-    color: #FFF;
-    h2 {
-      color: shade($green, 40%);
-    }
+    border: 2px solid tint($base, 80%);
+    @include border-radius($radius);
   }
 }
