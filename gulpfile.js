@@ -31,6 +31,9 @@ var plugins = {
     "metalsmith-static": null
 }
 
+/*
+ * Tasks
+ */
 gulp.task('prepare', function(callback) {
     mkdirp(site.destination, callback);
 });
@@ -91,7 +94,7 @@ gulp.task('server', ['prepare', 'watch'], function(callback) {
     .use(connect.static(site.destination));
 
     // change port and hostname to something static if you prefer
-    devServer = http.createServer(devApp).listen(0 /*, hostname*/);
+    devServer = http.createServer(devApp).listen(gutil.env.port || 0 /*, hostname*/);
 
     devServer.on('error', function(error) {
         log(colors.underline(colors.red('ERROR'))+' Unable to start server!');
@@ -117,7 +120,6 @@ gulp.task('server', ['prepare', 'watch'], function(callback) {
 
 // Rerun the task when a file changes
 gulp.task('watch', function() {
-
     gulp.watch(site.assets.custom.scss, ['sass']);
     gulp.watch(siteJS, ['concat-js']);
     gulp.watch(siteCSS, ['concat-css']);
@@ -125,4 +127,5 @@ gulp.task('watch', function() {
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['sass', 'concat-js', 'concat-css', 'metalsmith', 'server']);
+gulp.task('default', ['sass', 'concat-js', 'concat-css', 'metalsmith']);
+gulp.task('development', ['sass', 'concat-js', 'concat-css', 'metalsmith', 'server']);

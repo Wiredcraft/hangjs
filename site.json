@@ -3,8 +3,8 @@
     "destination": "./_site",
     "metadata": {
         "site": {
-            "title": "my jekyll-powered blog",
-            "description": "my second, super-cool, jekyll-powered blog."
+            "title": "JS Conf China 2014",
+            "description": "A two-day conference for Chinese Javascript & Node.js developer community, to be held in Hangzhou."
         }
     },
     "assets": {
