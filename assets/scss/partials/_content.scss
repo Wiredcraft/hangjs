@@ -10,14 +10,18 @@
   }
   #hero {
     padding-bottom: 0;
-    h1 {
-      margin: 1.5*$gutter 0 $gutter/2;
+    .column img {
+      width: 140px;
     }
-    p {
-      font-size: $huge;
+    h1 {
+      margin: 0 0 $gutter/2;
+    }
+    h2 {
+      color: inherit;
+      font-size: normal;
     }
   }
-  #subscribe {
+  #register {
     padding-top: 0;
     position: relative;
     p {
@@ -29,7 +33,6 @@
       width: 100%;
       a {
         @include button(#FFF);
-        color: #FFF;
         font-size: $huge;
         padding: $gutter/2 $gutter;
         &:hover {
@@ -41,5 +44,59 @@
   #mail {
     border: 2px solid tint($base, 80%);
     @include border-radius($radius);
+    .mc-field-group {
+      display: inline;
+      label {
+        display: none;
+      }
+      input {
+        margin-bottom: $gutter/2;
+      }
+    }
+    .button {
+      @include button($blue);
+    }
+  }
+  #speakers {
+    a {
+      @include button($green);
+    }
+  }
+  #sponsors {
+    a {
+      @include button($green);
+    }
+  }
+}
+
+/* Mobile */
+@media (max-width: 40rem) { 
+  #content {
+    text-align: center;
+    .row {
+      padding: $gutter 0;
+    }
+    .third {
+      text-align: center;
+    }
+    h1 {
+      font-size: $huge;
+    }
+    h2 {
+      font-size: $large;
+    }
+    #register {
+      img {
+        display: none;
+      }
+      p {
+        bottom: auto;
+        position: relative;
+        a {
+          @include button($green);
+          padding: $gutter/2 $gutter;
+        }
+      }
+    }
   }
 }
