@@ -7,6 +7,16 @@
             "description": "A two-day conference for Chinese Javascript & Node.js developer community, to be held in Hangzhou."
         }
     },
+    "metalsmith": {
+        "metalsmith-drafts": {},
+        "metalsmith-templates": {
+            "engine": "swig",
+            "cache": false,
+            "directory": "./templates"
+        },
+        "metalsmith-assets": null,
+        "metalsmith-static": null
+    },             
     "assets": {
         "vendor": {
             "js": [

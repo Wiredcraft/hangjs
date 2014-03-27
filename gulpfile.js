@@ -19,19 +19,6 @@ var site = require(path.resolve(__dirname, 'site.json'));
 var siteJS = site.assets.vendor.js.concat(site.assets.custom.js);
 var siteCSS = site.assets.vendor.css.concat(site.assets.custom.css);
 
-//
-var plugins = {
-    "metalsmith-drafts": {},
-    "metalsmith-markdown": {},
-    "metalsmith-templates": {
-        "engine": "swig",
-        "cache": false,
-        "directory": "./templates"
-    },
-    "metalsmith-assets": null,
-    "metalsmith-static": null
-}
-
 /*
  * Tasks
  */
@@ -66,6 +53,7 @@ gulp.task('concat-css', function() {
 //
 gulp.task('metalsmith', function(callback) {
     var metalsmith = new Metalsmith(process.cwd());
+    var plugins = site.metalsmith || {};
 
     metalsmith.source(site.source);
     metalsmith.destination(site.destination);
